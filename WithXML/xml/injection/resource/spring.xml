@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="message" class="constructor.ConstructorMessage">
-    <constructor-arg value="Spring is fun." />
+  <bean id="constructor-injection" class="xml.injection.constructor.Message">
+    <constructor-arg value="Constructor Injection." />
   </bean>
 </beans>
