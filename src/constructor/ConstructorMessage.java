@@ -1,8 +1,9 @@
 package constructor;
 
-import basic.Message;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
 
-public class ConstructorMessage implements Message {
+public class ConstructorMessage {
   private String message = null;
 
   public ConstructorMessage(String message) {
@@ -13,7 +14,11 @@ public class ConstructorMessage implements Message {
     return message;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public static void main(String[] args) {
+    XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("/constructor/ConstructorMessage-context.xml"));
+
+    ConstructorMessage obj = (ConstructorMessage) factory.getBean("message");
+    String msg = obj.getMessage();
+    System.out.println(msg);
   }
 }
