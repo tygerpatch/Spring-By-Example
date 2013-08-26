@@ -6,11 +6,18 @@
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+  <!--  Constructor-Based Dependency Injection -->
   <bean id="constructor-injection" class="xml.injection.constructor.Message">
     <constructor-arg value="Constructor Injection." />
   </bean>
 
+  <!--  Setter-Based Dependency Injection -->
   <bean id="setter-injection" class="xml.injection.setter.Message">
     <property name="message" value="Setter Injection." />
+  </bean>
+
+  <!-- Injecting an Inner Bean -->
+  <bean id="inner-injection" class="xml.injection.innerBean.Parrot">
+    <property name="message" ref="constructor-injection" />
   </bean>
 </beans>
