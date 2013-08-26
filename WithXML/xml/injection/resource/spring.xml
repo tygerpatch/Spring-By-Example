@@ -9,4 +9,8 @@
   <bean id="constructor-injection" class="xml.injection.constructor.Message">
     <constructor-arg value="Constructor Injection." />
   </bean>
+
+  <bean id="setter-injection" class="xml.injection.setter.Message">
+    <property name="message" value="Setter Injection." />
+  </bean>
 </beans>
