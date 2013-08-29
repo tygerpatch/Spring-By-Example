@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 
+<beans
   xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="
@@ -11,13 +11,19 @@
     <constructor-arg value="Constructor Injection." />
   </bean>
 
+  <!-- Specifying Setup and TearDown Methods -->
+  <bean id = "setup-teardown" class="xml.injection.constructor.Message" init-method = "setup" destroy-method = "teardown">
+    <constructor-arg value="Constructor Injection with init/destroy methods." />
+  </bean>
+
   <!--  Setter-Based Dependency Injection -->
   <bean id="setter-injection" class="xml.injection.setter.Message">
     <property name="message" value="Setter Injection." />
+    <property name="otherMessage" ref="other-message" />
   </bean>
 
-  <!-- Injecting an Inner Bean -->
-  <bean id="inner-injection" class="xml.injection.innerBean.Parrot">
-    <property name="message" ref="constructor-injection" />
+  <bean id="other-message" class="java.lang.String">
+    <constructor-arg value="This is another String." />
   </bean>
+
 </beans>
