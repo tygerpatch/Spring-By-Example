@@ -1,0 +1,14 @@
+include "WithXML",
+	"WithXML:xml",
+	"WithXML:xml:injection",
+	"WithXML:xml:injection:constructor",
+	"WithXML:xml:injection:setter",
+
+	"WithAnnotation",
+	"WithAnnotation:annotation",
+	"WithAnnotation:annotation:injection",
+	"WithAnnotation:annotation:injection:constructor",
+	"WithAnnotation:annotation:injection:inject",
+	"WithAnnotation:annotation:injection:property",
+	"WithAnnotation:annotation:injection:resource",
+	"WithAnnotation:annotation:injection:setter"

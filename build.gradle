@@ -1,0 +1,46 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.springframework', name: 'spring-core', version: '3.2.1.RELEASE'
+	compile group: 'junit', name: 'junit', version: '4.10'
+	compile group: 'org.springframework', name: 'spring-beans', version: '3.2.1.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '3.2.1.RELEASE'
+	compile group: 'org.springframework', name: 'spring-test', version: '3.2.1.RELEASE'
+	compile 'javax:javaee-api:7.0'
+}
+
+// org.gradle.api.tasks.SourceSetContainer
+sourceSets {
+    main {
+        java {
+            srcDirs "src", "WithXML", "WithAnnotation"
+        }
+
+	resources {
+		srcDir "resources"
+	}
+
+    }
+}
+
+task javaFiles {
+	description = 'For each source set, outputs location of any found Java files.'
+
+	println "=== Locating Java Files ==="
+
+	for(SourceSet sourceSet : project.sourceSets) {
+		println sourceSet
+
+		for(File file : sourceSet.allJava.files) {
+			println file
+		}
+	}
+}
+
+// Note: Gradle outputs to a build folder, while Eclipse outputs to a bin folder.
