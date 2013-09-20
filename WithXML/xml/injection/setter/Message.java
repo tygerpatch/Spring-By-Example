@@ -25,8 +25,8 @@ public class Message {
   }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/xml/resource/spring.xml");
-    Message msg = (Message) context.getBean("setter-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("xml-setter-injection");
 
     System.out.println(msg.getMessage());
     System.out.println(msg.getOtherMessage());

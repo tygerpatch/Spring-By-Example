@@ -31,14 +31,14 @@ public class Message {
   }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/annotation/resource/spring.xml");
-    Message msg = (Message) context.getBean("constructor-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("annotation-constructor-injection");
 
     System.out.println(msg.getMessage());
 
     // The following removes the constructor-injection bean from the container.
     // But before the construcor-injection bean is removed, Spring calls the teardown method.
     BeanDefinitionRegistry registry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
-    registry.removeBeanDefinition("constructor-injection");
+    registry.removeBeanDefinition("annotation-constructor-injection");
   }
 }

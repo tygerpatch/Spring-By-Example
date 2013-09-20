@@ -33,17 +33,17 @@ public class Message {
     // XmlBeanFactory factory = new XmlBeanFactory(new ClassPathResource("/with/xml/resource/spring.xml"));
     // Message msg = (Message) factory.getBean("constructor-injection");
 
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/xml/resource/spring.xml");
-    Message msg = (Message) context.getBean("constructor-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("xml-constructor-injection");
 
     System.out.println(msg.getMessage());
 
-    msg = (Message) context.getBean("setup-teardown");
+    msg = (Message) context.getBean("xml-setup-teardown");
     System.out.println(msg.getMessage());
 
     // The following removes the constructor-injection bean from the container.
     // But before the construcor-injection bean is removed, Spring calls the teardown method.
     BeanDefinitionRegistry registry = (BeanDefinitionRegistry) context.getAutowireCapableBeanFactory();
-    registry.removeBeanDefinition("setup-teardown");
+    registry.removeBeanDefinition("xml-setup-teardown");
   }
 }

@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Message {
 
-  @Resource(name = "resource-message")
+  @Resource(name = "annotation-resource-message")
   private String msg;
 
   public String getMessage() {
@@ -15,8 +15,8 @@ public class Message {
   }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/annotation/resource/spring.xml");
-    Message msg = (Message) context.getBean("resource-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("annotation-resource-injection");
 
     System.out.println(msg.getMessage());
   }

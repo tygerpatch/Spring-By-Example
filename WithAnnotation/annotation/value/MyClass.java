@@ -37,8 +37,8 @@ public class MyClass {
 //  }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/annotation/resource/spring.xml");
-    MyClass bean = (MyClass) context.getBean("value-annotation");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    MyClass bean = (MyClass) context.getBean("annotation-value-annotation");
 
     System.out.println("First Name: " + bean.getFirstName());
     System.out.println("Flag: " + bean.isFlag());

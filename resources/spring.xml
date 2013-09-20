@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+  <!--  *** With XML -->
+
+  <!--  Constructor-Based Dependency Injection -->
+  <bean id="xml-constructor-injection" class="xml.injection.constructor.Message">
+    <constructor-arg value="Constructor Injection." />
+  </bean>
+
+  <!-- Specifying Setup and TearDown Methods -->
+  <bean id = "xml-setup-teardown" class="xml.injection.constructor.Message" init-method = "setup" destroy-method = "teardown">
+    <constructor-arg value="Constructor Injection with init/destroy methods." />
+  </bean>
+
+  <!--  Setter-Based Dependency Injection -->
+  <bean id="xml-setter-injection" class="xml.injection.setter.Message">
+    <property name="message" value="Setter Injection." />
+    <property name="otherMessage" ref="xml-other-message" />
+  </bean>
+
+  <bean id="xml-other-message" class="java.lang.String">
+    <constructor-arg value="This is another String." />
+  </bean>
+
+  <!-- *** With Annotations *** -->
+
+  <!-- TODO: What does this element do? -->
+  <context:annotation-config />
+
+  <!--  Constructor-Based Dependency Injection -->
+  <bean id="annotation-constructor-injection" class="annotation.injection.constructor.Message">
+    <constructor-arg value="@Autowired on Constructor" type="java.lang.String"/>
+  </bean>
+
+  <!--  Setter-Based Dependency Injection -->
+  <bean id="annotation-setter-injection" class="annotation.injection.setter.Message" />
+
+  <bean id="annotation-setter-message" class="java.lang.String">
+    <constructor-arg value="@Autowired on Setter" />
+  </bean>
+
+  <!--  Property-Based Dependency Injection -->
+  <bean id="annotation-property-injection" class="annotation.injection.property.Message" />
+
+  <bean id="annotation-property-message" class="java.lang.String">
+    <constructor-arg value="@Autowired on Property" />
+  </bean>
+
+  <!--  Using @Inject -->
+  <bean id="annotation-inject-injection" class="annotation.injection.inject.Message" />
+
+  <bean id="annotation-inject-message" class="java.lang.String">
+    <constructor-arg value="@Inject on Property" />
+  </bean>
+
+  <!--  Using @Value -->
+  <bean id="annotation-value-annotation" class="annotation.value.MyClass" />
+
+  <!--  Using @Resource -->
+  <bean id="annotation-resource-injection" class="annotation.injection.resource.Message" />
+
+  <bean id="annotation-resource-message" class="java.lang.String">
+    <constructor-arg value="@Resource on Property" />
+  </bean>
+  
+
+</beans>

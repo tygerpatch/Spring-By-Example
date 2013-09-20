@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Message {
 
   @Autowired
-  @Qualifier("property-message")
+  @Qualifier("annotation-property-message")
   private String msg;
 
   public String getMessage() {
@@ -16,8 +16,8 @@ public class Message {
   }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/annotation/resource/spring.xml");
-    Message msg = (Message) context.getBean("property-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("annotation-property-injection");
 
     System.out.println(msg.getMessage());
   }

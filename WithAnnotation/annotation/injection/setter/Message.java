@@ -13,14 +13,14 @@ public class Message {
   }
 
   @Autowired
-  @Qualifier("setter-message")
+  @Qualifier("annotation-setter-message")
   public void setMessage(String str) {
     this.str = str;
   }
 
   public static void main(String[] args) {
-    ApplicationContext context = new ClassPathXmlApplicationContext("/with/annotation/resource/spring.xml");
-    Message msg = (Message) context.getBean("setter-injection");
+    ApplicationContext context = new ClassPathXmlApplicationContext("/spring.xml");
+    Message msg = (Message) context.getBean("annotation-setter-injection");
 
     System.out.println(msg.getMessage());
   }
