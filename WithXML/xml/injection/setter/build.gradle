@@ -1,4 +1,0 @@
-task run(type: JavaExec) {
-	main = "xml.injection.setter.Message"
-	classpath = sourceSets.main.runtimeClasspath
-}

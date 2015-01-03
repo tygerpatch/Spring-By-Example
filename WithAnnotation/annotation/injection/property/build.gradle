@@ -1,4 +1,0 @@
-task run(type: JavaExec) {
-	main = "annotation.injection.property.Message"
-	classpath = sourceSets.main.runtimeClasspath
-}
