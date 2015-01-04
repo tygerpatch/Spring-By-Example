@@ -1,4 +1,4 @@
-package basic;
+package stuff;
 
 public interface Message {
   public String getMessage();

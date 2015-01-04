@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="message" class="setter.SetterMessage">
+  <bean id="message" class="stuff.SetterMessage">
     <property name="message" value="Spring is fun." />
   </bean>
 </beans>

@@ -10,11 +10,12 @@ dependencies {
    compile 'org.springframework:spring-core:3.2.1.RELEASE'
    compile 'org.springframework:spring-beans:3.2.1.RELEASE'
    compile 'org.springframework:spring-context:3.2.1.RELEASE'
-   compile 'org.springframework:spring-test:3.2.1.RELEASE'
-   compile 'javax:javaee-api:7.0'
 
+   // the following dependency is necessary for @Inject and @Named annotations
+   compile 'javax:javaee-api:7.0' // for 
+
+   testCompile 'org.springframework:spring-test:3.2.1.RELEASE'
    testCompile 'junit:junit:4.10'
 }
 
-sourceSets.main.java.srcDir "/WithAnnotation"
-sourceSets.main.java.srcDir "/WithXML"
+sourceSets.main.java.srcDirs "/WithAnnotation", "/WithXML"

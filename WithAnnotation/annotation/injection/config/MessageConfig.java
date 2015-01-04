@@ -5,7 +5,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import xml.injection.constructor.Message;
+import stuff.ConstructorMessage;
+// xml.injection.constructor.Message;
 
 @Configuration
 public class MessageConfig {
